@@ -1,0 +1,21 @@
+type User {
+  id: ID! @unique
+  name: String!
+  email: String
+}
+
+type Article {
+  id: ID! @unique
+  title: String!
+  content: String!
+  createdByUser: User!
+  comments: [Comment!]!
+}
+
+type Comment {
+  id: ID! @unique
+  parent: Comment
+  user: User!
+  article: Article!
+  content: String!
+}
